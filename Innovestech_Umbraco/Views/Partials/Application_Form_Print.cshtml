@@ -1,0 +1,396 @@
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Controller;
+@model ApplicationFormModel
+
+@{
+    Html.EnableClientValidation(true);
+    Html.EnableUnobtrusiveJavaScript(true);
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    foreach (ModelState modelState in ViewData.ModelState.Values)
+    {
+        var errors = modelState.Errors;
+
+        if (errors.Any())
+        {
+            <ul>
+                @foreach (ModelError error in errors)
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        }
+    }
+}
+@using (Html.BeginUmbracoForm<ApplicationFormSurfaceController>("ApplicationFormBlock", null, new { @id = "applicationForm" }))
+{
+    @Html.ValidationSummary("applicationFormModel", true)
+    <div class="col-12 p-0 applicationForm">
+        <div class="col-12 p-0">
+            <div class="form-body">
+                <b class="subheadingFormat">YOUR DETAILS</b>
+                <div class="blog-text">
+                    <div>
+                        <p>Title</p>
+                        @Html.TextBoxFor(m => Model.Title, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Title" })
+                        @Html.ValidationMessageFor(m => Model.Title)
+                    </div>
+                    <div>
+                        <p>
+                            First Name
+                        </p>
+                        @Html.TextBoxFor(m => Model.First_Name, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "First Name" })
+                        @Html.ValidationMessageFor(m => Model.First_Name)
+                    </div>
+                    <div>
+                        <p>
+                            Last Name
+                        </p>
+                        @Html.TextBoxFor(m => Model.Last_Name, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Last Name" })
+                        @Html.ValidationMessageFor(m => Model.Last_Name)
+                    </div>
+                    <div>
+                        <p>
+                            Phone Number
+                        </p>
+                        @Html.TextBoxFor(m => Model.Phone_Number, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Phone Number" })
+                        @Html.ValidationMessageFor(m => Model.Phone_Number)
+                    </div>
+                    <div>
+                        <p>
+                            Alternative Phone Number
+                        </p>
+                        @Html.TextBoxFor(m => Model.Alt_Phone_Number, new { @class = "form-control yourDetails", @placeholder = "Alternative Phone Number" })
+                        @Html.ValidationMessageFor(m => Model.Alt_Phone_Number)
+                    </div>
+                    <div>
+                        <p>
+                            Email Address
+                        </p>
+                        @Html.TextBoxFor(m => Model.Email_Address, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Email Address" })
+                        @Html.ValidationMessageFor(m => Model.Email_Address)
+                    </div>
+                    <div>
+                        <p>
+                            Confirm Email Address
+                        </p>
+                        @Html.TextBoxFor(m => Model.Conf_Email_Address, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Confirm Email Address" })
+                        @Html.ValidationMessageFor(m => Model.Conf_Email_Address)
+                    </div>
+                    <div>
+                        <p>
+                            Role
+                        </p>
+                        @Html.TextBoxFor(m => Model.Job_Role, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Role" })
+                        @Html.ValidationMessageFor(m => Model.Job_Role)
+                    </div>
+                    <div>
+                        <p>
+                            Correspondence Address
+                        </p>
+                        @Html.TextBoxFor(m => Model.Corr_Address, new { @class = "form-control yourDetails", @placeholder = "Correspondence address (if different from organisation address)" })
+                        @Html.ValidationMessageFor(m => Model.Corr_Address)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-0">
+            <div class="form-body">
+                <b class="subheadingFormat">PART 1</b>
+                <div class="blog-text">
+                    <div>
+                        <p>
+                            Organisation Name
+                        </p>
+                        @Html.TextBoxFor(m => Model.Org_Name, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Organisation Name" })
+                        @Html.ValidationMessageFor(m => Model.Org_Name)
+                    </div>
+                    <div>
+                        <p>
+                            Legal Organisation Name
+                        </p>
+                        @Html.TextBoxFor(m => Model.Legal_Org_Name, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Legal Organisation Name" })
+                        @Html.ValidationMessageFor(m => Model.Legal_Org_Name)
+                    </div>
+                    <div>
+                        <p>
+                            Legal Entity
+                        </p>
+                        @Html.TextBoxFor(m => Model.Legal_Entity, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Legal Entity" })
+                        @Html.ValidationMessageFor(m => Model.Legal_Entity)
+                    </div>
+                    <div></div>
+                    <div>
+                        <p>
+                            Have you applied to the TSPadel fund before?
+                        </p>
+                        <select class="form-control" id="Previous_Applicant" name="Previous_Applicant">
+                            <option value="" disable="" selected="">Please select</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>
+                            When?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Previous_Applicant_Date, new { @type = "date", @class = "form-control yourDetails", required = (string)null, @placeholder = "When?", @value = "{0:yyyy-MM-dd}" })
+                        @Html.ValidationMessageFor(m => Model.Previous_Applicant_Date)
+                    </div>
+                    <div>
+                        <p>
+                            Chair/CEO Name
+                        </p>
+                        @Html.TextBoxFor(m => Model.Ceo_Name, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Chair/CEO Name" })
+                        @Html.ValidationMessageFor(m => Model.Ceo_Name)
+                    </div>
+                    <div>
+                        <p>
+                            CEO Email Address
+                        </p>
+                        @Html.TextBoxFor(m => Model.Ceo_Email, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "CEO Email Address" })
+                        @Html.ValidationMessageFor(m => Model.Ceo_Email)
+                    </div>
+                    <div>
+                        <p>
+                            Main Address
+                        </p>
+                        @Html.TextBoxFor(m => Model.Main_Address, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Main Address" })
+                        @Html.ValidationMessageFor(m => Model.Main_Address)
+                    </div>
+                    <div>
+                        <p>
+                            Post Code
+                        </p>
+                        @Html.TextBoxFor(m => Model.Post_Code, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Post Code" })
+                        @Html.ValidationMessageFor(m => Model.Post_Code)
+                    </div>
+                    <div>
+                        <p>
+                            Office Phone Number
+                        </p>
+                        @Html.TextBoxFor(m => Model.Office_Phone_Number, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Office Phone Number" })
+                        @Html.ValidationMessageFor(m => Model.Office_Phone_Number)
+                    </div>
+                    <div>
+                        <p>
+                            Website URL
+                        </p>
+                        @Html.TextBoxFor(m => Model.Website_Url, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Website URL" })
+                        @Html.ValidationMessageFor(m => Model.Website_Url)
+                    </div>
+                    <div>
+                        <p>
+                            Social Media
+                        </p>
+                        @Html.TextBoxFor(m => Model.Social_Media, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Social Media" })
+                        @Html.ValidationMessageFor(m => Model.Social_Media)
+                    </div>
+                    <div>
+                        <p>
+                            Charity Phone Number
+                        </p>
+                        @Html.TextBoxFor(m => Model.Charity_Number, new { @class = "form-control yourDetails", @placeholder = "Charity Phone Number" })
+                        @Html.ValidationMessageFor(m => Model.Charity_Number)
+                    </div>
+                    <div>
+                        <p>
+                            Organisation establishment date
+                        </p>
+                        @Html.TextBoxFor(m => Model.Org_Est_Date, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control yourDetails", required = (string)null, @placeholder = "When?", @value = "{0:yyyy-MM-dd}" })
+                        @Html.ValidationMessageFor(m => Model.Org_Est_Date)
+                    </div>
+                    <div>
+                        <p>
+                            Which geographic region(s) does your organisation cover?
+                        </p>
+                        @Html.DropDownListFor(n => n.Regions, new SelectList(Model.RegionDrops, "RegionValue", "RegionName"), new { @class = "form-control form-control-md rounded-0 g-py-0 ", id = "RegionDrop", required = (string)null })
+                    </div>
+                    <div>
+                        <p>
+                            Which specific locations do you work in?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Main_Locations, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Work Location" })
+                        @Html.ValidationMessageFor(m => Model.Main_Locations)
+                    </div>
+                    <div>
+                        <p>
+                            Number of full-time paid staff employed
+                        </p>
+                        @Html.TextBoxFor(m => Model.Full_Staff_Employed, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Please enter a valid number", @type = "number", @min = "0", @step = "1", @inputmode = "numeric" })
+                        @Html.ValidationMessageFor(m => Model.Full_Staff_Employed)
+                    </div>
+                    <div>
+                        <p>
+                            Number of part-time paid staff employed
+                        </p>
+                        @Html.TextBoxFor(m => Model.Part_Staff_Employed, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Please enter a valid number", @type = "number", @min = "0", @step = "1", @inputmode = "numeric" })
+                        @Html.ValidationMessageFor(m => Model.Part_Staff_Employed)
+                    </div>
+                    <div>
+                        <p>
+                            Number of volunteers employed
+                        </p>
+                        @Html.TextBoxFor(m => Model.Volunteers_Employed, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Please enter a valid number", @type = "number", @min = "0", @step = "1", @inputmode = "numeric" })
+                        @Html.ValidationMessageFor(m => Model.Volunteers_Employed)
+                    </div>
+                    <div>
+                        <p>
+                            How often the management board meets
+                        </p>
+                        @Html.TextBoxFor(m => Model.Meetings_Timetable, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Please enter a valid answer" })
+                        @Html.ValidationMessageFor(m => Model.Meetings_Timetable)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-0">
+            <div class="form-body">
+                <b class="subheadingFormat">1.1 YOUR REQUEST</b>
+                <div class="blog-text">
+                    <div>
+                        <p>
+                            How much are you requesting? Please see Application Guidelines for more information.
+                        </p>
+                        @Html.TextBoxFor(m => Model.Amount_Requested, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Enter Amount (£)", @type = "number", @min = "0", @max = "35000", @step = "1", @inputMode = "decimal" })
+                        @Html.ValidationMessageFor(m => Model.Amount_Requested)
+                    </div>
+                    <div>
+                        <p>
+                            If you are successful, what is your funding transition plan leading up to when funding from TSPadel ceases?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Transition_Plan, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Transition Plan" })
+                        @Html.ValidationMessageFor(m => Model.Transition_Plan)
+                    </div>
+                    <div>
+                        <p>
+                            What type of funding are you applying for?
+                        </p>
+                        @Html.DropDownListFor(n => n.Funding_Type, new SelectList(Model.FundingDrops, "FundingValue", "FundingName"), new { @class = "form-control form-control-md rounded-0 g-py-0 ", id = "FundingDrop", required = (string)null })
+                    </div>
+                    <div>
+                        <p>
+                            What is the title of your project/bid for funding?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Project_Title, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Project Title" })
+                        @Html.ValidationMessageFor(m => Model.Project_Title)
+                    </div>
+                    <div>
+                        <p>
+                            In one sentence what is the aim of your project?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Project_Aim, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Project Aim" })
+                        @Html.ValidationMessageFor(m => Model.Project_Aim)
+                    </div>
+                    <div class="col-md-12">
+                        <p>
+                            What 3-5 outcomes will you use to monitor the effectiveness of your project?
+                        </p>
+                        @Html.TextAreaFor(m => Model.Effective_Outcomes, new { @class = "form-control yourDetails word-count", required = (string)null, @data_maxwordcount = "200", @data_wordcountgroup = "1", @placeholder = "Effective Outcomes" })
+                        @Html.ValidationMessageFor(m => Model.Effective_Outcomes)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-0">
+            <div class="form-body">
+                <b class=" subheadingFormat">1.2 FINANCIAL INFORMATION</b>
+                <div class="blog-text">
+                    <div>
+                        <p>
+                            From your most recent accounts tell us the year end the accounts cover
+                        </p>
+                        @Html.TextBoxFor(m => Model.Accounts_End, "{0:yyyy-MM-dd}", new { @class = "form-control yourDetails", required = (string)null, @type = "date", @placeholder = "Accounts End" })
+                        @Html.ValidationMessageFor(m => Model.Accounts_End)
+                    </div>
+                    <div>
+                        <p>
+                            What was your income in that year?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Income, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Enter Amount (£)", @type = "number", @min = "0", @step = "1", @inputMode = "decimal" })
+                        @Html.ValidationMessageFor(m => Model.Income)
+                    </div>
+                    <div>
+                        <p>
+                            What was your expenditure in that year?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Expenditure, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Enter Amount (£)", @type = "number", @min = "0", @step = "1", @inputMode = "decimal" })
+                        @Html.ValidationMessageFor(m => Model.Expenditure)
+                    </div>
+                    <div>
+                        <p>
+                            What is the level of your free reserves?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Free_Reserves, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Please enter a valid answer", @type = "number", @inputMode = "decimal" })
+                        @Html.ValidationMessageFor(m => Model.Free_Reserves)
+                    </div>
+                    <div>
+                        <p>
+                            How many people must authorise payments on your bank account(s)?
+                        </p>
+                        @Html.TextBoxFor(m => Model.Bank_Authorisers, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Please enter a valid answer", @type = "number", @inputmode = "numeric" })
+                        @Html.ValidationMessageFor(m => Model.Bank_Authorisers)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-0">
+            <div class="form-body">
+                <b class="subheadingFormat">PART 2</b>
+                <div class="blog-text">
+                    <div class="col-md-12">
+                        <p>
+                            A brief introduction to your organisation
+                        </p>
+                        @Html.TextAreaFor(m => Model.Org_Intro, new { @class = "form-control yourDetails word-count", required = (string)null, @data_maxwordcount = "500", @data_wordcountgroup = "2" })
+                        @Html.ValidationMessageFor(m => Model.Org_Intro)
+                        <p class="d-flex flex-column"><span class="word-count-show" data-wordcountgroup="2"></span></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>
+                            Details of the project/core funding that you are asking TSPadel to fund
+                        </p>
+                        @Html.TextAreaFor(m => Model.Funding_Details, new { @class = "form-control yourDetails word-count", required = (string)null, @data_maxwordcount = "500", @data_wordcountgroup = "3" })
+                        @Html.ValidationMessageFor(m => Model.Funding_Details)
+                        <p class="d-flex flex-column"><span class="word-count-show" data-wordcountgroup="3"></span></p>
+                    </div>
+                    <div>
+                        <p>Signee Name</p>
+                        @Html.TextBoxFor(m => Model.Declaration_Name, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Name" })
+                        @Html.ValidationMessageFor(m => Model.Declaration_Name)
+                    </div>
+                    <div>
+                        <p>Signee Position</p>
+                        @Html.TextBoxFor(m => Model.Declaration_Position, new { @class = "form-control yourDetails", required = (string)null, @placeholder = "Position" })
+                        @Html.ValidationMessageFor(m => Model.Declaration_Position)
+                    </div>
+                    <div>
+                        <p>Date signed</p>
+                        @Html.TextBoxFor(m => Model.Declaration_Date, "{0:yyyy-MM-dd}", new { @class = "form-control yourDetails", required = (string)null, @type = "date", @value = "{0:yyyy-MM-dd}" })
+                        @Html.ValidationMessageFor(m => Model.Declaration_Date)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $('textarea').each(function () {
+            var rows = Math.ceil(this.scrollHeight / parseFloat($(this).css('line-height'))) - 1;
+            rows *= 2; // Multiply the number of rows by 2
+            $(this).attr('rows', rows).css('overflow-y', 'hidden');
+        }).on('input', function () {
+            var rows = Math.ceil(this.scrollHeight / parseFloat($(this).css('line-height'))) - 1;
+            rows *= 2; // Multiply the number of rows by 2
+            $(this).attr('rows', rows);
+        });
+    });
+
+
+
+
+
+</script>

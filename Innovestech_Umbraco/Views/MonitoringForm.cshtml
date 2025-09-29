@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Extensions;
+@{
+    Layout = "Master.cshtml";
+
+    string MonitoringCode = Request["MonitoringCode"] != null ? Request["MonitoringCode"].ToString() : "";
+
+    MonitoringFormModel monitoringFormModel = DatabaseFunctions.getMonitoringForm(MonitoringCode);
+
+}
+
+@Html.Partial("Monitoring_Form", monitoringFormModel)
+@*@if (Model.Value<DateTime>("MonitoringsOpen") >= DateTime.Now && Model.Value<DateTime>("MonitoringsClose") <= DateTime.Now)
+    {
+        @Html.Partial("Monitoring_Form", monitoringFormModel)
+    }
+    else
+    {
+        <div class="col-12 p-0" style="background-color: #f0f0f0;">
+            <div class="col-12">
+                Applications are currently closed.
+                Please note that the monitoring round is between @Convert.ToDateTime(Model.Value("MonitoringsOpen")).ToString("dd MMMM yyyy HH:mm") and @Convert.ToDateTime(Model.Value("MonitoringsClose")).ToString("dd MMMM yyyy HH:mm")
+            </div>
+        </div>
+    }*@

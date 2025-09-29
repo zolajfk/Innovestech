@@ -1,0 +1,15 @@
+﻿@inherits UmbracoViewPage<BlockListModel>
+@using Umbraco.Core.Models.Blocks
+@{
+    if (!Model.Any()) { return; }
+}
+<div class="umb-block-list">
+    <div class="col-12 p-0 m-0 row row-gap-2 py-2">
+        @foreach (var block in Model)
+        {
+            if (block?.ContentUdi == null) { continue; }
+            var data = block.Content;
+                @Html.Partial("BlockList/Components/" + data.ContentType.Alias, block)
+        }
+    </div>
+</div>

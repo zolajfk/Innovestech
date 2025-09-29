@@ -1,0 +1,23 @@
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Extensions;
+@{
+    Layout = "CCDMaster.cshtml";
+
+    string ApplicationCode = Request["ApplicationCode"] != null ? Request["ApplicationCode"].ToString() : "";
+
+    ApplicationFormModel applicationFormModel = DatabaseFunctions.getApplicationForm(ApplicationCode);
+
+    applicationFormModel.RegionDrops = DatabaseFunctions.getRegions();
+    applicationFormModel.FundingDrops = DatabaseFunctions.getFundingTypes();
+}
+
+@if (Members.IsLoggedIn())
+{
+    @Html.Partial("Application_Form_Print", applicationFormModel)
+}
+else
+{
+    Response.Redirect("/ccd");
+}

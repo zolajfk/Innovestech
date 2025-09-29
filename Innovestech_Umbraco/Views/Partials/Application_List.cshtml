@@ -1,0 +1,45 @@
+﻿@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Controller;
+@model List<ApplicationFormModel>
+
+<div class="d-flex justify-content-center">
+    <table class="CCD-Table">
+        <thead>
+            <tr>
+                <th>
+                    Select
+                </th>
+                <th>
+                    email
+                </th>
+                <th>
+                    Organisation
+                </th>
+                <th>
+                    Their Link
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ApplicationFormModel applicationFormModel in Model)
+            {
+                <tr>
+                    <td class="CCD-Select">
+                        <a href="/ccd/view-application?ApplicationCode=@applicationFormModel.ApplicationCode"><button type="button" class="button-primary">Select</button></a>
+                    </td>
+                    <td>
+                        @applicationFormModel.Email_Address
+                    </td>
+                    <td>
+                        @applicationFormModel.Org_Name
+                    </td>
+                    <td>
+                        https://www.TSPadel.org.uk/application-form?ApplicationCode=@applicationFormModel.ApplicationCode
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

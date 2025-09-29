@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Extensions;
+
+@{
+    Layout = "CCDMaster.cshtml";
+
+    string ApplicationCode = Request["ApplicationCode"] != null ? Request["ApplicationCode"].ToString() : "";
+
+    List<ApplicationFormModel> applicationForms = DatabaseFunctions.getApplications();
+
+}
+
+@if (Members.IsLoggedIn())
+{
+@Html.Partial("Application_List", applicationForms)
+}
+else
+{
+    Response.Redirect("/ccd");
+}

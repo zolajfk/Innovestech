@@ -1,0 +1,97 @@
+header, footer, aside, nav, iframe, .menu, .hero, .adslot {
+    display: none;
+}
+
+
+@media screen {
+
+    body {
+        margin: 2em;
+    }
+}
+
+@media print {
+
+    body {
+        margin: 0;
+        color: #000;
+        background-color: #fff;
+    }
+}
+
+.blog-text {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0 0 2em;
+}
+
+    .blog-text > div {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 1em;
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+        .blog-text > div.col-md-12 {
+            width: 100%;
+        }
+
+
+@media print {
+    input::-webkit-calendar-picker-indicator, input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        display: none;
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+
+.form-control {
+    color: #7f7f7f;
+    height: 3rem;
+    margin: 0 0 2em;
+}
+
+textarea.form-control {
+    min-height: max-content;
+    height: auto;
+    resize: none;
+    page-break-before: avoid;
+}
+
+
+@media print {
+
+    .form-control {
+        border: 0;
+        padding: 0;
+    }
+}
+
+
+.subheadingFormat {
+    text-transform: uppercase;
+    font-size: 22px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0 2em;
+}
+
+@media print {
+    .subheadingFormat {
+        page-break-before: always;
+    }
+}
+
+@media print {
+    .blog-text > div.col-md-12 {
+        page-break-before: auto;
+    }
+}

@@ -1,0 +1,34 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{
+    var contentNode = Umbraco.Content(Model.MacroParameters["buttonLink"]);
+    var buttonColour = Model.MacroParameters["buttonColour"]?.ToString()?.Trim()?.ToLower();
+    Boolean showArrow = Model.MacroParameters["showArrow"] == null ? false : (Model.MacroParameters["showArrow"].ToString() != "0" ? true : false);
+
+    var buttonClasses = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+        { "white", "btn btn-light" },
+        { "forestgreen", "btn btn-primary" },
+        { "earthgold", "btn btn-secondary" },
+        { "mossgreen", "btn btn-success" },
+        { "agedred", "btn btn-danger" }
+    };
+
+    string btnClass = buttonClasses.TryGetValue(buttonColour ?? "", out var css)
+                      ? css
+                      : "btn btn-light";
+}
+
+@if (contentNode != null)
+{
+    <a class="@btnClass" href="@contentNode.Url().Replace("https://localhost:44324","")">
+        @Model.MacroParameters["buttonText"]
+        @if (showArrow)
+        {
+            <i class="fa fa-arrow-right"></i>
+        }
+    </a>
+}
+
+
+

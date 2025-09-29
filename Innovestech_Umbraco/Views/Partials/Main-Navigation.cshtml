@@ -1,0 +1,82 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    IEnumerable<IPublishedContent> navRoot = Umbraco.Content(1075).Children();
+}
+@*<div id="mySidenav" class="sidenav">
+        <button href="javascript:void(0)" class="button" onclick="closeNav()">
+            <i class="fa fa-times closebtn"> </i>
+        </button>
+        <ul class="navbar-nav mr-auto m-0 bg-transparent" style="width: 100%; ">
+            @foreach (IPublishedContent navItem in navRoot.Where(x => x.Value<Boolean>("mobileOnly") == false))
+            {
+                IPublishedContent pg = navItem.Value<IPublishedContent>("pageLink");
+                if (navItem.HasValue("subPages") && pg != null)
+                {
+                    <li class="nav-item dropdown navbar-dark">
+                        <a class="nav-link dropdown-toggle" style="margin:0px" href="@pg.Url()" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            @navItem.Name
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @{
+                                IEnumerable<IPublishedContent> subPagesCollection = navItem.Value<IEnumerable<IPublishedContent>>("subPages");
+                                foreach (IPublishedContent navSubItem in subPagesCollection)
+                                {
+                                    <a class="dropdown-item" href="@navSubItem.Url().Replace("https://localhost:44324","")" style="margin:0px">@navSubItem.Name</a>
+                                }
+                            }
+                        </div>
+                    </li>
+                }
+                else if (pg != null)
+                {
+                    if (pg.Url() != "/paysearch/" && pg.Url() != "/my-account/")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@pg.Url().Replace("https://localhost:44324","")" style="margin:0px">@navItem.Value("PageName") <span class="sr-only">(current)</span></a>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+        <div onclick="closeNav()" id="closeNav"></div>
+    </div>*@
+
+<div class="offcanvas offcanvas-start text-bg-primary navbar-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav flex-grow-1 pe-3">
+            @foreach (IPublishedContent navItem in navRoot.Where(x => x.Value<Boolean>("mobileOnly") == false))
+            {
+                IPublishedContent pg = navItem.Value<IPublishedContent>("pageLink");
+                if (navItem.HasValue("subPages") && pg != null)
+                {
+                    <li class="nav-item dropdown navbar-dark">
+                        <a class="nav-link dropdown-toggle" style="margin:0px" href="@pg.Url()" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            @navItem.Name
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @{
+                                IEnumerable<IPublishedContent> subPagesCollection = navItem.Value<IEnumerable<IPublishedContent>>("subPages");
+                                foreach (IPublishedContent navSubItem in subPagesCollection)
+                                {
+                                    <li><a class="dropdown-item" href="@navSubItem.Url().Replace("https://localhost:44324","")" style="margin:0px">@navSubItem.Name</a></li>
+                                }
+                            }
+                        </ul>
+                    </li>
+                }
+                else if (pg != null)
+                {
+                    if (pg.Url() != "/paysearch/" && pg.Url() != "/my-account/")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(pg.Id == Model.Id ? "active" : "")" href="@pg.Url().Replace("https://localhost:44324","")" style="margin:0px">@navItem.Value("PageName") <span class="sr-only">(current)</span></a>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>

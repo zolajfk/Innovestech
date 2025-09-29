@@ -1,0 +1,382 @@
+@model TSPadel_Umbraco.Models.MonitoringFormModel
+
+
+<div class="col-12 p-0" style="background-color: #f0f0f0;">
+    <div class="col-12">
+        <div class="form-body">
+            <div class="subheadingFormat-parent">
+                <b class="subheadingFormat">EVERY 6 MONTHS</b>
+
+            </div>
+            <div class="blog-text-container">
+                <div class="blog-text">
+                    <p>To comply with funding requirements, we ask that you complete the form below, every 6 months. The website will automatically remind you three weeks before the form is due to be submitted. Your responses will help us to understand whether your project is on track to achieve your stated objectives. It will also help to inform our grant-making in the future. Thank you.</p><br>
+                    <div class="inputBoxes-wrapper">
+                        <label><b>1) Name of Organisation</b></label>
+                        <div class="col d-flex flex-column">
+                            @Html.TextBoxFor(m => Model.Org_Name, new { @class = "form-control required", @placeholder = "Organisation Name" })
+                        @Html.ValidationMessageFor(m => Model.Org_Name)
+                    </div>
+
+                    <label><b>2) Name of person completing form and email address</b></label>
+                    <div class="inputBoxes">
+                        <div class="col d-flex flex-column">
+                            @Html.TextBoxFor(m => Model.Completer_Name, new { @class = "form-control required", @placeholder = "Name" })
+                            @Html.ValidationMessageFor(m => Model.Completer_Name)
+                        </div>
+                        <div class="col d-flex flex-column">
+                            @Html.TextBoxFor(m => Model.Completer_Email_Address, new { @class = "form-control required", @placeholder = "Email Address" })
+                            @Html.ValidationMessageFor(m => Model.Completer_Email_Address)
+                        </div>
+                    </div>
+
+                    <label><b>3. Please enter details of your TSPadel grant for the last 6 months</b></label>
+
+                    <label>Value of TSPadel Grant:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Grant_Value, new { @class = "form-control required", @placeholder = "Grant Value" })
+                        @Html.ValidationMessageFor(m => Model.Grant_Value)
+                    </div>
+
+                    <label>Salaries:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Salaries, new { @class = "form-control required", @placeholder = "Salaries" })
+                        @Html.ValidationMessageFor(m => Model.Salaries)
+                    </div>
+
+                    <label>Premises:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Premises, new { @class = "form-control required", @placeholder = "Premises" })
+                        @Html.ValidationMessageFor(m => Model.Premises)
+                    </div>
+
+                    <label>Resources (describe):</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextAreaFor(m => Model.Resources, new { @class = "form-control required", @placeholder = "Resources" })
+                        @Html.ValidationMessageFor(m => Model.Resources)
+                    </div>
+
+                    <label>Any Other Expenditure:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Other_Expenditure, new { @class = "form-control required", @placeholder = "Other Expenditure" })
+                        @Html.ValidationMessageFor(m => Model.Other_Expenditure)
+                    </div>
+
+                    <label>Total:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Total, new { @class = "form-control required", @placeholder = "Total" })
+                        @Html.ValidationMessageFor(m => Model.Total)
+                    </div>
+
+                    <label>Explain under or overspends</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Under_Over_Spends, new { @class = "form-control required" })
+                        @Html.ValidationMessageFor(m => Model.Under_Over_Spends)
+                    </div>
+
+                    <label><b>4. Measure the 3 or more outcomes stated on your application form against progress</b></label>
+                    <label>Outcome 1:</label>
+                    <input type="text" class="form-control" placeholder="Outcome 1">
+                    <label>Progress:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Outcome_1, new { @class = "form-control required", @rows = "10", @data_maxwordcount = "450", @data_wordcountgroup = "1" })
+                        @Html.ValidationMessageFor(m => Model.Outcome_1)
+                    </div>
+                    <p><span class="word-count-show" data-wordcountgroup="1">0/450</span></p>
+
+                    <label>Outcome 2:</label>
+                    <input type="text" class="form-control" placeholder="Outcome 2">
+                    <label>Progress:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextAreaFor(m => Model.Outcome_2, new { @class = "form-control required", @rows = "10", @data_maxwordcount = "450", @data_wordcountgroup = "2" })
+                        @Html.ValidationMessageFor(m => Model.Outcome_2)
+                    </div>
+                    <p><span class="word-count-show" data-wordcountgroup="2">0/450</span></p>
+
+                    <label>Outcome 3:</label>
+                    <input type="text" class="form-control" placeholder="Outcome 3">
+                    <label>Progress:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextAreaFor(m => Model.Outcome_3, new { @class = "form-control required", @rows = "10", @data_maxwordcount = "450", @data_wordcountgroup = "3" })
+                        @Html.ValidationMessageFor(m => Model.Outcome_3)
+                    </div>
+                    <p><span class="word-count-show" data-wordcountgroup="3">0/450</span></p>
+
+                    <label>Outcome 4:</label>
+                    <input type="text" class="form-control" name="" placeholder="Outcome 4">
+                    <label>Progress:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextAreaFor(m => Model.Outcome_4, new { @class = "form-control required", @rows = "10", @data_maxwordcount = "450", @data_wordcountgroup = "4" })
+                        @Html.ValidationMessageFor(m => Model.Outcome_4)
+                    </div>
+                    <p><span class="word-count-show" data-wordcountgroup="4">0/450</span></p>
+
+                    <label>Outcome 5:</label>
+                    <input type="text" class="form-control" name="" placeholder="Outcome 5">
+                    <label>Progress:</label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextAreaFor(m => Model.Outcome_5, new { @class = "form-control required", @rows = "10", @data_maxwordcount = "450", @data_wordcountgroup = "5" })
+                        @Html.ValidationMessageFor(m => Model.Outcome_5)
+                    </div>
+                    <p><span class="word-count-show" data-wordcountgroup="5">0/450</span></p>
+
+
+                    <label><b>5. Share what you learned or what you were surprised by with this project:</b></label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextAreaFor(m => Model.What_Leant, new { @class = "form-control required", @rows = "3", @data_maxwordcount = "100", @data_wordcountgroup = "6" })
+                        @Html.ValidationMessageFor(m => Model.What_Leant)
+                    </div>
+                    <p><span class="word-count-show" data-wordcountgroup="6">0/100</span></p>
+
+                    <label><b>6. Outline an anonymised case study of one of your beneficiaries. </b></label>
+                    <div class="col d-flex flex-column">
+                        @Html.TextAreaFor(m => Model.Anonymised_Case, new { @class = "form-control required", @rows = "8", @data_maxwordcount = "300", @data_wordcountgroup = "7" })
+                        @Html.ValidationMessageFor(m => Model.Anonymised_Case)
+                    </div>
+                    <p><span class="word-count-show" data-wordcountgroup="7">0/300</span></p>
+
+                    <label><b>7. May we use this case study in our publicity/website?</b></label>
+                    <select class="form-control" id="Publicity" name="Publicity" onchange="toggleInput()">
+                        <option value="" disable="" selected="">Please select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <div id="conditionalInput" name="" style="display:none;">
+                        <label class="pb-4"><b>If you have relevant photographs that we may use in our publicity, please UPLOAD</b></label>
+                        <div class="application-buttons m-0 p-0">
+                            <input type="file" id="Conditional_Images_File" name="Conditional_Images_File" class="application-upload">
+                        </div>
+                        <br>
+                    </div>
+
+                    <label><b>8.Demographic information</b></label>
+                    <div class="monitoring-form-info-wrapper">
+                        <div class="monitoring-form-info-row">
+                            <label class="col-md-3">Total Number of Beneficiaries</label>
+                            <input type="number" class="form-control col-md-9" id="Total_Beneficiaries" name="Total_Beneficiaries" placeholder="Total"><br>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Total_Beneficiaries, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Total" })
+                                @Html.ValidationMessageFor(m => Model.Total_Beneficiaries)
+                            </div>
+                        </div>
+                        <div class="monitoring-form-info">
+                            <label class="col-md-12">Sex</label>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Male, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Male" })
+                                @Html.ValidationMessageFor(m => Model.Male)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Female, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Female" })
+                                @Html.ValidationMessageFor(m => Model.Female)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Undisclosed_Gender, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Prefer not to say" })
+                                @Html.ValidationMessageFor(m => Model.Undisclosed_Gender)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Total_Gender, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Total" })<br>
+                                @Html.ValidationMessageFor(m => Model.Total_Gender)
+                            </div>
+                        </div>
+                        <div class="monitoring-form-info">
+                            <label class="col-md-12">Age - actual number, not percentage</label>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Under_4, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "<4" })
+                                @Html.ValidationMessageFor(m => Model.Under_4)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Between_5_9, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "5-9" })
+                                @Html.ValidationMessageFor(m => Model.Between_5_9)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Between_10_14, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "10-14" })
+                                @Html.ValidationMessageFor(m => Model.Between_10_14)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Between_15_24, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "15-24" })
+                                @Html.ValidationMessageFor(m => Model.Between_15_24)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Between_25_34, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "25-34" })
+                                @Html.ValidationMessageFor(m => Model.Between_25_34)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Between_35_44, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "35-44" })
+                                @Html.ValidationMessageFor(m => Model.Between_35_44)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Between_45_54, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "45-54" })
+                                @Html.ValidationMessageFor(m => Model.Between_45_54)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Between_55_64, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "55-64" })
+                                @Html.ValidationMessageFor(m => Model.Between_55_64)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Over_65, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "65<" })
+                                @Html.ValidationMessageFor(m => Model.Over_65)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Total_Age, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Total" })
+                                @Html.ValidationMessageFor(m => Model.Total_Age)<br>
+                            </div>
+                        </div>
+                        <div class="monitoring-form-info">
+                            <label class="col-md-12">Ethnic Background</label>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.White_Background, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "English/Welsh/Scottish/Northern Irish or British" })
+                                @Html.ValidationMessageFor(m => Model.White_Background)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Other_White_Background, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Any Other White Background" })
+                                @Html.ValidationMessageFor(m => Model.Other_White_Background)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Asian_Background, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Asian or Asian British" })
+                                @Html.ValidationMessageFor(m => Model.Asian_Background)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Other_Asian_Background, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Any other Asian background" })
+                                @Html.ValidationMessageFor(m => Model.Other_Asian_Background)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Black_Background, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Black/Black British/Caribbean or African" })
+                                @Html.ValidationMessageFor(m => Model.Black_Background)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Other_Black_Background, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Any other Black/African/Caribbean background" })
+                                @Html.ValidationMessageFor(m => Model.Other_Black_Background)
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Other_Background, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Other ethnic group" })
+                                @Html.ValidationMessageFor(m => Model.Other_Background)<br>
+                            </div>
+                            <div class="col-12 d-flex flex-column">
+                                @Html.TextBoxFor(m => Model.Total_Ethnicity, new { @class = "form-control required", @type = "number", @step = "1", @min = "0", @placeholder = "Total" })
+                                @Html.ValidationMessageFor(m => Model.Total_Ethnicity)<br>
+                            </div>
+                        </div>
+                    </div>
+                    <label><b>9) Signed</b></label><div class="inputBoxes">
+                        <div class="col-12 d-flex flex-column">
+                            @Html.TextBoxFor(m => Model.Signee_Name, new { @class = "form-control required", @type = "text", @step = "1", @min = "0", @placeholder = "Name" })
+                            @Html.ValidationMessageFor(m => Model.Signee_Name)
+                        </div>
+                        <div class="col-12 d-flex flex-column">
+                            @Html.TextBoxFor(m => Model.Signee_Email_Address, new { @class = "form-control required", @type = "text", @step = "1", @min = "0", @placeholder = "Email Address" })
+                            @Html.ValidationMessageFor(m => Model.Signee_Email_Address)
+                        </div>
+                    </div><label><b>10) Date</b></label>
+
+                    <div class="col-12 d-flex flex-column">
+                        @Html.TextBoxFor(m => Model.Date_Signed, new { @class = "form-control required", @type = "date", @value = "{0:yyyy-MM-dd}" })
+                        @Html.ValidationMessageFor(m => Model.Date_Signed)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    /*
+    $(document).ready(function () {
+        $(".fullDetails").hide();
+    });
+    */
+    $(".yourDetails").on("change", function () {
+        if ($("#email").val() != "" && $("#email").val() == $("#confirmemail").val()) {
+            $(".fullDetails").show();
+        }
+
+    });
+
+    function toggleInput() {
+        var dropdown = document.getElementById("Publicity");
+        var inputBox = document.getElementById("conditionalInput");
+
+        if (dropdown.value == "yes") {
+            inputBox.style.display = "block";
+        } else {
+            inputBox.style.display = "none";
+        }
+    }
+
+
+    $(".word-count").on("keyup", function () {
+        var maxWords = $(this).attr("data-maxwordcount");
+        var wordcountgroup = $(this).attr("data-wordcountgroup");
+        // Get the textarea and span elements
+        var textarea = $(".word-count[data-wordcountgroup=" + wordcountgroup + "]");
+        var span = $(".word-count-show[data-wordcountgroup=" + wordcountgroup + "]");
+
+        // Get the content of the textarea and split it into words
+        var words = textarea.val().split(/\s+/);
+
+        // Filter out empty words (multiple spaces between words etc)
+        words = words.filter(function (word) {
+            return word.length > 0;
+        });
+
+        // Update the word count
+        var wordCount = words.length;
+        if (wordCount == 0) {
+            span.html("Max " + maxWords + " words");
+        }
+        else {
+            span.html(wordCount + "/" + maxWords);
+        }
+        // Truncate the text if it exceeds the max limit
+        if (wordCount > maxWords) {
+            var truncatedText = words.slice(0, maxWords).join(' ');
+            textarea.innerHTML(truncatedText);
+            span.innerHTML(maxWords);
+        }
+
+    });
+
+    $(document).ready(function () {
+        $(".word-count").trigger("keyup");
+    });
+
+
+
+</script>
+<script>
+
+    $("form").on("submit", function (event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+        let form = $("#applicationForm");
+        let url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            success: function (data) {
+
+                // Ajax call completed successfully
+                var ApplicationCode = data.ApplicationCode;
+                setUrlParameter(window.location.href, "ApplicationCode", ApplicationCode);
+                $("#ApplicationCode").val(ApplicationCode);
+            },
+            error: function (data) {
+
+                // Some error in ajax call
+                alert("some Error");
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+        /*if (!$("#applicationForm").valid()) {
+
+        }*/
+
+    });
+
+</script>

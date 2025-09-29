@@ -1,0 +1,100 @@
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Controller;
+@model ContactFormModel
+
+@{
+    Html.EnableClientValidation(true);
+    Html.EnableUnobtrusiveJavaScript(true);
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    foreach (ModelState modelState in ViewData.ModelState.Values)
+    {
+        var errors = modelState.Errors;
+
+        if (errors.Any())
+        {
+            <ul>
+                @foreach (ModelError error in errors)
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        }
+    }
+}
+@using (Html.BeginUmbracoForm<ContactSurfaceController>("ContactBlock", null, new { @id = "contactForm" }))
+{
+    @Html.ValidationSummary("contactFormModel", true)
+    <div class="contact-input-boxes row">
+        <div class="inputBoxes">
+            <div class="col d-flex flex-column gap-3">
+                <div>
+                    @Html.TextBoxFor(m => Model.First_Name, new { @class = "form-control required", @placeholder = "First Name" })
+                    @Html.ValidationMessageFor(m => Model.First_Name)
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => Model.Last_Name, new { @class = "form-control required", @placeholder = "Last Name" })
+                    @Html.ValidationMessageFor(m => Model.Last_Name)
+                </div>
+            </div>
+            <div class="col d-flex flex-column gap-3">
+                <div>
+                    @Html.TextBoxFor(m => Model.Email_Address, new { @class = "form-control required", @placeholder = "Email Address" })
+                    @Html.ValidationMessageFor(m => Model.Email_Address)
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => Model.Phone_Number, new { @class = "form-control required", @placeholder = "Phone Number" })
+                    @Html.ValidationMessageFor(m => Model.Phone_Number)
+                </div>
+            </div>
+        </div>
+        <div class="messageBox">
+            @Html.TextAreaFor(m => Model.Contact_Message, new { @class = "form-control required", @rows = "4", @placeholder = "Message" })
+            @Html.ValidationMessageFor(m => Model.Contact_Message)
+        </div>
+        <button class="btn btn-turq">
+            <div class="contact-subheader white">Submit</div>
+            <img class="button-arrow" alt="" src="./public/icon-featherarrowright.svg" />
+        </button>
+        <div id="formSubmitted" style="display:none">
+            Thank you for your contact request - a member of the team will be in touch with you
+        </div>
+    </div>
+}
+
+<script>
+
+    $("form").on("submit", function (event) {
+        event.preventDefault();
+        if ($("#contactForm").valid()) {
+            var formData = new FormData(this);
+            let form = $("#contactForm");
+            let url = form.attr('action');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: formData,
+                success: function (data) {
+
+                    // Ajax call completed successfully
+                    $("#formSubmitted").show();
+                },
+                error: function (data) {
+
+                    // Some error in ajax call
+                    alert("some Error");
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+
+            /*if (!$("#applicationForm").valid()) {
+
+            }*/
+        };
+    });
+</script>

@@ -1,0 +1,56 @@
+@inherits UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using TSPadel_Umbraco.Controller;
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Models;
+@{
+    var eventDate = (ContentModels.ContactBlock)Model.Content;
+    string className = "";
+    string widthName = "";
+    ContactFormModel contactFormModel = new ContactFormModel();
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "TURQUOISE")
+{
+    className = "bg-forestgreen";
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "WHITE")
+{
+    className = "bg-white";
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "GREY")
+{
+    className = "bg-grey";
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "LIGHT GREY")
+{
+    className = "bg-light-grey";
+}
+@if (eventDate.Value<string>("blockWidth").ToUpper() == "25%")
+{
+    widthName = "col-12 col-md-3 p-0 m-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "33%")
+{
+    widthName = "col-12 col-md-4 p-0 m-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "50%")
+{
+    widthName = "col-12 col-md-6 p-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "66%")
+{
+    widthName = "col-12 col-md-8 p-0 m-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "75%")
+{
+    widthName = "col-12 col-md-9 p-0 m-0";
+}
+else
+{
+    widthName = "col-12 p-0";
+}
+<div class="@widthName">
+    <div class="@className">
+        @Html.Raw(eventDate.Value("text"))
+        @Html.Partial("Contact_Form", contactFormModel)
+    </div>
+</div>

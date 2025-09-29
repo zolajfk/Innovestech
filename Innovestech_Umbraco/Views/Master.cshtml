@@ -1,0 +1,154 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using System.Web.Optimization;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="@{WriteLiteral(Model.Value("seoDescription"));}">
+    <meta name="title" content="@{WriteLiteral(Model.Value("seoTitle"));}">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gotham Medium:wght@400&amp;display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arial:wght@400&amp;display=swap" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css?r=1" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/additional-methods.js"></script>
+    <script type="text/javascript" src="~/Scripts/custom/customfunctions.js"></script>
+    <!-- <link rel="stylesheet" href="~/css/global.css?r=rs" /> -->
+    <link rel="stylesheet" href="~/css/global2.css?r=rs2" />
+
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGD2G5H1M2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-LGD2G5H1M2');
+    </script>
+</head>
+
+<body>
+
+    @Html.Partial("Main-Navigation")
+    <!--cookie consent panel-->
+
+    <div class="home">
+
+        @Html.Partial("Header")
+
+
+        @RenderBody()
+    </div>
+    @Html.Partial("Footer")
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+        function cycleImages() {
+            var $active = $('#imageCycler .active');
+            var $next = ($active.next().length > 0) ? $active.next() : $('#imageCycler div:first');
+            //$('#imageCycler div').hide();
+            $next.addClass('nextcycler');//move the next image up the pile
+            //$active.fadeOut(1500, function () {//fade out the top image
+            $active.fadeTo("slow", 0);//reset the z-index and unhide the image
+            $next.fadeTo("slow", 1);//make the next image the top one
+            //});
+            //$next.removeClass('nextcycler');
+            $next.addClass("active").removeClass("nextcycler");
+            $active.removeClass("active");
+        }
+
+        $(document).ready(function () {
+            // run every 7s
+            setInterval('cycleImages()', 7000);
+        })
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.boxShadow = "0 0 0 100vw rgba(0, 0, 0, 0.5)";
+            document.getElementById("closeNav").style.display = "flex";
+
+            document.body.style.overflow = "hidden";
+
+            var elements = document.getElementsByClassName("nav-link");
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "flex"; // Set opacity of nav-label to 0
+            }
+
+            setTimeout(function () {
+                for (var i = 0; i < elements.length; i++) {
+
+                    elements[i].style.opacity = "1" // Set display of nav-label to none after 0.2s
+                }
+            }, 200); // Delay of 0.2s
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style = "0";
+            document.body.style = "";
+            document.getElementById("closeNav").style = "";
+
+            var elements = document.getElementsByClassName("nav-link");
+
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.opacity = "0" // Set display of nav-label to flex
+            }
+
+            setTimeout(function () {
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.display = "none"; // Set opacity of nav-label to 1 after 0.2s
+                }
+            }, 200); // Delay of 0.2s
+
+            isNavOpen = true;
+        }
+    </script>
+    <script>
+        $('.bxslider').each(function () {
+            numMinSlides = 4;
+            numMaxSlides = 4;
+            if ($(window).width() < 1200) { numMaxSlides = 3; numMinSlides = 3; }
+            if ($(window).width() < 768) { numMaxSlides = 2; numMinSlides = 2; }
+            if ($(window).width() < 420) { numMaxSlides = 1; numMinSlides = 1; }
+            slideMargin = 10;
+            if (numMaxSlides == 1) {
+                slideWidth = $(window).width();
+            }
+            else {
+                slideWidth = ($(window).width() - (numMaxSlides * slideMargin)) / numMaxSlides;
+            }
+            $(this).bxSlider({
+                minSlides: numMinSlides,
+                maxSlides: numMaxSlides,
+                slideWidth: slideWidth,
+                slideMargin: slideMargin,
+                ticker: true,
+                speed: 15000
+            });
+        });
+    </script>
+    <script>
+        function LoadDelay() {
+            var topPadding = $("#myNav").height();
+            $("body").css("padding-top", topPadding);
+        }
+        document.addEventListener('DOMContentLoaded', LoadDelay);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+
+/**umb_name:H1*/
+h1.h2 {
+}
+
+/**umb_name:H2*/
+h2.h3 {
+}
+
+/**umb_name:H3*/
+h3.h4 {
+}
+
+/**umb_name:H4*/
+h4.h5 {
+}
+
+/**umb_name:H5*/
+h5.h6 {
+}
+
+/**umb_name:Forest Green*/
+.text-primary {
+	color: #1C342D;
+}
+
+/**umb_name:Earth Gold*/
+.text-secondary {
+	color: #6C5D35;
+}
+
+/**umb_name:Moss Green*/
+.text-success {
+	color: #658B2E;
+}
+
+/**umb_name:Aged Red*/
+.text-danger {
+	color: #773430;
+}
+
+/**umb_name:White*/
+.text-white {
+	color: #808080;
+}

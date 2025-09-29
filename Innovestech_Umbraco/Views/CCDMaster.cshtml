@@ -1,0 +1,75 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using System.Web.Optimization;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="@{WriteLiteral(Model.Value("seoDescription"));}">
+    <meta name="title" content="@{WriteLiteral(Model.Value("seoTitle"));}">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gotham Medium:wght@400&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gotham:wght@400;700&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arial:wght@400&amp;display=swap" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/additional-methods.js"></script>
+    <script type="text/javascript" src="~/Scripts/custom/customfunctions.js"></script>
+    <link rel="stylesheet" href="~/css/global.css?r=6" />
+    <link rel="stylesheet" href="~/css/TextStyles.css?r=6" />
+</head>
+
+<body>
+
+    @Html.Partial("CCDMain-Navigation")
+    <!--cookie consent panel-->
+
+    <div class="home">
+
+        @Html.Partial("CCD-Header")
+
+
+        @RenderBody()
+    </div>
+    @Html.Partial("CCD-Footer")
+
+    <script>
+        function cycleImages() {
+            var $active = $('#imageCycler .active');
+            var $next = ($active.next().length > 0) ? $active.next() : $('#imageCycler div:first');
+            //$('#imageCycler div').hide();
+            $next.addClass('nextcycler');//move the next image up the pile
+            //$active.fadeOut(1500, function () {//fade out the top image
+            $active.fadeTo("slow", 0);//reset the z-index and unhide the image
+            $next.fadeTo("slow", 1);//make the next image the top one
+            //});
+            //$next.removeClass('nextcycler');
+            $next.addClass("active").removeClass("nextcycler");
+            $active.removeClass("active");
+        }
+
+        $(document).ready(function () {
+            // run every 7s
+            setInterval('cycleImages()', 7000);
+        })
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@inherits UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Extensions;
+@{
+    var eventDate = (ContentModels.SliderBlock)Model.Content;
+}
+@{
+    var widths = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+        { "25%", "col-12 col-md-3" },
+        { "33%", "col-12 col-md-4" },
+        { "50%", "col-12 col-md-6" },
+        { "66%", "col-12 col-md-8" },
+        { "75%", "col-12 col-md-9" }
+    };
+
+    var blockWidth = eventDate.Value<string>("blockWidth") ?? "";
+    string widthName = widths.TryGetValue(blockWidth, out var wcss) ? wcss : "col-12";
+
+    var crops = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+        { "SMALL",  "small_Image" },
+        { "MEDIUM", "mediumImage" },
+        { "LARGE",  "largeImage" },
+        { "SQUARE", "squareImage" }
+    };
+
+    var crop = eventDate.Value<string>("imageCrop") ?? "";
+    string croppedName = crops.TryGetValue(crop, out var val) ? val : "mediumImage";
+}
+
+<div class="@widthName">
+    <ul class="bxslider">
+        @{
+            var typedMultiMediaPicker = eventDate.Value<IEnumerable<MediaWithCrops>>("myImage");
+            foreach (var entry in typedMultiMediaPicker)
+            {
+                var cropUrl = entry.GetCropUrl(croppedName);
+                <li>
+                    <img src="@cropUrl" class="" />
+                </li>
+            }
+        }
+    </ul>
+</div>

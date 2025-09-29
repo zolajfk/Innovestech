@@ -1,0 +1,443 @@
+.thisisengineering-raeng-cdskgx-icon {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 1366px;
+    height: 738px;
+    object-fit: cover;
+}
+
+.div {
+    position: absolute;
+    top: 7px;
+    left: 16px;
+}
+
+.enquiriesTSPadelcouk-wrapper,
+.wrapper {
+    position: absolute;
+    top: 20px;
+    border-radius: var(--br-base);
+    background-color: var(--color-white);
+    height: 33px;
+    color: var(--color-forestgreen);
+    font-family: var(--font-gotham-medium);
+}
+
+.wrapper {
+    left: 893px;
+    width: 162px;
+}
+
+.enquiriesTSPadelcouk-wrapper {
+    right: 103px;
+    width: 172px;
+}
+
+.menu-child {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    background: linear-gradient(60.82deg, #1d1d1d, rgba(104, 104, 104, 0));
+    width: 1366px;
+    height: 738px;
+    opacity: 0.33;
+    mix-blend-mode: multiply;
+}
+
+.label {
+    position: absolute;
+    top: 22px;
+    left: 30px;
+}
+
+.icon-feather-arrow-right {
+    position: absolute;
+    height: calc(100% - 46.87px);
+    top: 24.5px;
+    right: 28.5px;
+    bottom: 22.37px;
+    max-height: 100%;
+    width: 17.51px;
+}
+
+.label-parent {
+    position: absolute;
+    top: 533px;
+    left: 300px;
+    border-radius: var(--br-13xl);
+    border: 2px solid var(--color-white);
+    box-sizing: border-box;
+    width: 196px;
+    height: 65px;
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-200);
+}
+
+.label-group,
+.menu-item {
+    position: absolute;
+    background-color: var(--color-forestgreen);
+}
+
+.label-group {
+    top: 533px;
+    left: 83px;
+    border-radius: var(--br-13xl);
+    width: 202px;
+    height: 65px;
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-200);
+}
+
+.menu-item {
+    bottom: -658px;
+    left: 0;
+    width: 683px;
+    height: 683px;
+}
+
+.repeat-grid-27 {
+    position: absolute;
+    top: 743px;
+    left: 417px;
+    width: 266px;
+    height: 941px;
+    opacity: 0.16;
+}
+
+.lorem-ipsum-dolor {
+    position: absolute;
+    top: 280px;
+    left: 83px;
+    font-size: var(--font-size-51xl);
+    line-height: 65px;
+    display: inline-block;
+    width: 536px;
+}
+
+.awarding-excellence {
+    position: absolute;
+    width: calc(100% + 1px);
+    top: calc(50% - 14.08px);
+    left: 0;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.path-5424-icon {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    width: 20.93px;
+    height: 2px;
+}
+
+.awarding-excellence-parent {
+    position: absolute;
+    top: 230px;
+    left: 83px;
+    width: 535px;
+    height: 28.17px;
+    font-size: var(--font-size-base);
+}
+
+.christina-hawkins-vdpyovzm2ok-icon {
+    position: absolute;
+    right: 0;
+    bottom: -658px;
+    width: 683px;
+    height: 683px;
+    object-fit: cover;
+}
+
+.path-6008-icon {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    overflow: hidden;
+    height: 179px;
+    opacity: 0.5;
+}
+
+.blog,
+.header-child,
+.path-6008-icon {
+    position: absolute;
+    left: 0;
+}
+
+.header-child {
+    height: calc(100% - 148px);
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 148px;
+    background-color: var(--color-forestgreen);
+}
+
+.blog {
+    width: calc(100% + 1px);
+    top: calc(50% - 28px);
+    line-height: 65px;
+    display: inline-block;
+}
+
+.navigation-link,
+.navigation-link1 {
+    position: absolute;
+    top: calc(50% - 244px);
+    left: 96px;
+    width: 535px;
+    height: 56px;
+    cursor: pointer;
+}
+
+.navigation-link1 {
+    top: calc(50% - 127px);
+}
+
+.repeat-grid-35 {
+    position: absolute;
+    top: calc(50% - 384px);
+    left: calc(50% - 258px);
+    width: 266px;
+    height: 620px;
+    opacity: 0.16;
+}
+
+.metadata {
+    position: absolute;
+    height: 20.83%;
+    width: 23.12%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.area-sizemediumstatedefau {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--br-981xl);
+    background-color: var(--color-white);
+    opacity: 0.16;
+}
+
+.metadata1 {
+    position: absolute;
+    height: 50%;
+    width: 55.5%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.area-iconfeatherfacebooks {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-white);
+    opacity: 0;
+}
+
+.icon,
+.icon1 {
+    position: absolute;
+}
+
+.icon1 {
+    height: 83.33%;
+    width: 45.83%;
+    top: 8.33%;
+    right: 25%;
+    bottom: 8.34%;
+    left: 29.16%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.icon {
+    height: 41.67%;
+    width: 41.67%;
+    top: 29.17%;
+    right: 29.17%;
+    bottom: 29.17%;
+    left: 29.17%;
+}
+
+.circle-button {
+    position: relative;
+    width: 43.67px;
+    height: 43.67px;
+}
+
+.icon3 {
+    position: absolute;
+    height: 74.77%;
+    width: 91.67%;
+    top: 12.46%;
+    right: 4.17%;
+    bottom: 12.78%;
+    left: 4.16%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.area-iconfeatherinstagram {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid var(--color-agedred);
+    box-sizing: border-box;
+    opacity: 0;
+}
+
+.icon5 {
+    position: absolute;
+    height: 91.58%;
+    width: 91.58%;
+    top: 8.33%;
+    right: 0.09%;
+    bottom: 0.09%;
+    left: 8.33%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.circle-button-parent {
+    position: absolute;
+    height: 5.69%;
+    top: 65.57%;
+    bottom: 28.74%;
+    left: calc(50% - 587px);
+    width: 161.01px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--gap-mini);
+    font-size: var(--font-size-10xs);
+    font-family: var(--font-arial);
+}
+
+.div1,
+.enquiriesTSPadelcouk1 {
+    position: absolute;
+    bottom: 402px;
+    left: calc(50% - 587px);
+    font-size: var(--font-size-6xl);
+    line-height: 30px;
+    display: inline-block;
+    width: 303px;
+}
+
+.enquiriesTSPadelcouk1 {
+    bottom: 354px;
+}
+
+.header-item,
+.path-5979-icon {
+    position: absolute;
+    height: calc(100% - 693px);
+    top: 0;
+    bottom: 693px;
+}
+
+.path-5979-icon {
+    width: calc(100% - 1191px);
+    right: 1116px;
+    left: 75px;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.header-item {
+    left: 0;
+    background-color: var(--color-forestgreen);
+    width: 75px;
+}
+
+.header-inner {
+    position: absolute;
+    top: calc(50% - 369.69px);
+    right: 1136.17px;
+    width: 133.83px;
+    height: 44.09px;
+}
+
+.icon-feather-menu {
+    position: absolute;
+    top: calc(50% - 358.8px);
+    left: 25.39px;
+    width: 27.04px;
+    height: 27.04px;
+}
+
+.path-5981-icon {
+    position: absolute;
+    height: calc(100% - 693px);
+    top: 0;
+    bottom: 693px;
+    left: calc(50% - 608px);
+    max-height: 100%;
+    width: 0;
+}
+
+.david-siglin-uuw4psob388-unspl-icon {
+    position: absolute;
+    height: calc(100% - 148px);
+    top: 0;
+    right: 0;
+    bottom: 148px;
+    max-height: 100%;
+    width: 683px;
+    object-fit: cover;
+}
+
+.path-6007-icon {
+    position: absolute;
+    top: calc(50% + 82.78px);
+    left: 82.5px;
+    width: 0;
+    height: 0;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1366px;
+    height: 768px;
+    font-size: var(--font-size-31xl);
+}
+
+.menu {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 768px;
+    text-align: left;
+    font-size: var(--font-size-sm);
+    color: var(--color-white);
+    font-family: var(--font-gotham);
+}
+

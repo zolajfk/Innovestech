@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Extensions;
+@{
+    Layout = "Master.cshtml";
+
+    string ApplicationCode = Request["ApplicationCode"] != null ? Request["ApplicationCode"].ToString() : "";
+    Boolean Testing = Request["ApplicationCode"] != null ? true : false;
+    ApplicationFormModel applicationFormModel = DatabaseFunctions.getApplicationForm(ApplicationCode);
+
+    applicationFormModel.RegionDrops = DatabaseFunctions.getRegions();
+    applicationFormModel.FundingDrops = DatabaseFunctions.getFundingTypes();
+}
+
+@if (Testing || (Model.Value<DateTime>("ApplicationsOpen") <= DateTime.Now && Model.Value<DateTime>("ApplicationsClose") >= DateTime.Now))
+    {
+        @Html.Partial("Application_Form", applicationFormModel)
+ }
+else
+    {
+    <div class="col-12 p-0" style="background-color: #f0f0f0;">
+        <div class="col-12">
+            Applications are currently closed.
+            Please note that the application round is between @Convert.ToDateTime(Model.Value("ApplicationsOpen")).ToString("dd MMMM yyyy HH:mm") and @Convert.ToDateTime(Model.Value("ApplicationsClose")).ToString("dd MMMM yyyy HH:mm")
+        </div>
+    </div>
+    }

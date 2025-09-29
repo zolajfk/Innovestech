@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Extensions;
+@{
+
+    string ApplicationCode = Request["ApplicationCode"] != null ? Request["ApplicationCode"].ToString() : "";
+    Boolean Testing = Request["ApplicationCode"] != null ? true : false;
+    ApplicationFormModel applicationFormModel = DatabaseFunctions.getApplicationForm(ApplicationCode);
+
+    applicationFormModel.RegionDrops = DatabaseFunctions.getRegions();
+    applicationFormModel.FundingDrops = DatabaseFunctions.getFundingTypes();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="@{WriteLiteral(Model.Value("seoDescription"));}">
+    <meta name="title" content="@{WriteLiteral(Model.Value("seoTitle"));}">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gotham Medium:wght@400&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gotham:wght@400;700&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arial:wght@400&amp;display=swap" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/additional-methods.js"></script>
+    <script type="text/javascript" src="~/Scripts/custom/customfunctions.js"></script>
+    <link rel="stylesheet" href="~/css/print.css?r=q" />
+
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGD2G5H1M2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-LGD2G5H1M2');
+    </script>
+</head>
+<body>
+    @Html.Partial("Application_Form_Print", applicationFormModel)
+</body>
+</html>

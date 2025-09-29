@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Controller;
+@{
+    LoginViewModel loginmodel = new LoginViewModel();
+
+}
+@if (Members.IsLoggedIn())
+{
+    @Html.Partial("../Partials/Logout", loginmodel)
+}

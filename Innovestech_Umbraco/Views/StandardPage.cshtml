@@ -1,0 +1,7 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "Master.cshtml";
+}
+
+@Html.GetBlockListHtml(Model.Value<Umbraco.Core.Models.Blocks.BlockListModel>("pageBlocks"))

@@ -1,0 +1,74 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Extensions;
+@{
+    Layout = "Master.cshtml";
+    IEnumerable<IPublishedContent> Blogs = Model.Descendants("blogEntry").OrderByDescending(x => x.Value<DateTime>("BlogDate"));
+    IPublishedContent BlogCategories = Umbraco.Content(29938);
+    string selectedCategory = Request["bc"];
+    string blogCat = "";
+    string blogCatText = "";
+    string directionName = "";
+    string className = "";
+    Boolean showBlog = false;
+    Boolean showCat = false;
+    Boolean lazyImages = false;
+}
+ @if (Model.HasValue("styleUsed"))
+ {
+     var styleUsed = Model.Value<string>
+     ("styleUsed").ToUpper();
+
+     if (styleUsed == "TURQUOISE")
+     {
+         className = "bg-primary";
+     }
+     else if (styleUsed == "WHITE")
+     {
+         className = "bg-white";
+     }
+     else if (styleUsed == "GREY")
+     {
+         className = "bg-grey";
+     }
+     else if (styleUsed == "LIGHT GREY")
+     {
+         className = "bg-light-grey";
+     }
+ }
+@if (Model.HasValue("flexDirection"))
+{
+var flexDirection = Model.Value<string>
+    ("flexDirection").ToUpper();
+
+    if (flexDirection == "ROW")
+    {
+    directionName = "row";
+    }
+    else if (flexDirection == "COLUMN")
+    {
+    directionName = "flex-column";
+    }
+    else
+    {
+    directionName = "flex-column";
+    }
+}
+        <div class="col-12 p-0 blog @className @directionName">
+            @foreach (var Blog in Blogs)
+            {
+                if (Blog.IsVisible())
+                {
+                    <div class="col-12 col-md-3">
+                        <div class="blog-landing">
+                            <a href="@Blog.Url().Replace("https://localhost:44324","")">
+                                <img class="blog-landing-image" style="background-image: url('@(MediaHelper.GetMediaURL(Blog, "headerImage", 1024, HttpContext.Current.Request))');">
+                            </a>
+
+                            <p class="blog-landing-title">@Blog.Name</p>
+                            <a href="@Blog.Url().Replace("https://localhost:44324","")">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>

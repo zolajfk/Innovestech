@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@if (Members.IsLoggedIn())
+{
+    <header class="CCD-Header">
+        <div class="col-12 p-0 nav-top">
+            <div class="col-md-6 p-0 m-0 navbar-header">
+                <a class="menu button-primary" onclick="openNav()"><i class="fa fa-bars m-0"></i> </a>
+            </div>
+
+
+            <div class="col-md-6 p-0 m-0 welcome-message "><p class="p-0 m-0">Welcome to CCD</p></div>
+
+
+        </div>
+    </header>
+}

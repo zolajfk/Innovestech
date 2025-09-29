@@ -1,0 +1,108 @@
+﻿@inherits UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using TSPadel_Umbraco.Extensions;
+@{
+    var eventDate = (ContentModels.TrusteeBlock)Model.Content;
+    string className = "";
+    string widthName = "";
+    string croppedName = "";
+    string directionName = "";
+    string imgStr = eventDate.Value<string>("blockimage");
+
+
+    var typedMediaPickerSingle = eventDate.Value<MediaWithCrops>("myImage");
+    if (typedMediaPickerSingle != null)
+    {
+
+    }
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "TURQUOISE")
+{
+    className = "bg-forestgreen";
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "WHITE")
+{
+    className = "bg-white";
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "GREY")
+{
+    className = "bg-grey";
+}
+@if (eventDate.Value<string>("styleUsed").ToUpper() == "LIGHT GREY")
+{
+    className = "bg-light-grey";
+}
+@if (eventDate.Value<string>("blockWidth").ToUpper() == "25%")
+{
+    widthName = "col-12 col-md-3 p-0 m-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "33%")
+{
+    widthName = "col-12 col-md-4 p-0 m-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "50%")
+{
+    widthName = "col-12 col-md-6 p-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "66%")
+{
+    widthName = "col-12 col-md-8 p-0 m-0";
+}
+else if (eventDate.Value<string>("blockWidth").ToUpper() == "75%")
+{
+    widthName = "col-12 col-md-9 p-0 m-0";
+}
+else
+{
+    widthName = "col-12 p-0";
+}
+@if (eventDate.Value<string>("imageCrop").ToUpper() == "SMALL")
+{
+    croppedName = "small_Image";
+}
+else if (eventDate.Value<string>("imageCrop").ToUpper() == "MEDIUM")
+{
+    croppedName = "mediumImage";
+}
+else if (eventDate.Value<string>("imageCrop").ToUpper() == "LARGE")
+{
+    croppedName = "largeImage";
+}
+else if (eventDate.Value<string>("imageCrop").ToUpper() == "SQUARE")
+{
+    croppedName = "squareImage";
+}
+else
+{
+    croppedName = "mediumImage";
+}
+@if (eventDate.Value<string>("flexDirection").ToUpper() == "ROW")
+{
+    directionName = "row";
+}
+else if (eventDate.Value<string>("flexDirection").ToUpper() == "COLUMN")
+{
+    directionName = "flex-column";
+}
+else
+{
+    directionName = "flex-column";
+}
+
+<div class="@widthName">
+    <div class="@className @directionName">
+        @{
+            if (typedMediaPickerSingle != null)
+            {
+                var cropUrl = typedMediaPickerSingle.GetCropUrl(croppedName);
+                <img src="@cropUrl" class="trustees-images" />
+            }
+            else
+            {
+                <p>No image available</p>
+            }
+        }
+        @Html.Raw(eventDate.Value("trusteeName"))
+        @Html.Raw(eventDate.Value("trusteeDescription"))
+    </div>
+</div>

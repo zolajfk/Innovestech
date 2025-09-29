@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using TSPadel_Umbraco.Controller;
+@using TSPadel_Umbraco.Models;
+@{
+    Layout = "CCDMaster.cshtml";
+    LoginViewModel loginmodel = new LoginViewModel();
+    string registerGUID = Request["registerGUID"] != null ? Request["registerGUID"].ToString() : string.Empty;
+}
+
+@if (!Members.IsLoggedIn())
+{
+    @Html.Partial("../Partials/Login", loginmodel)
+}
+else
+{
+    Response.Redirect("/ccd/applications");
+}

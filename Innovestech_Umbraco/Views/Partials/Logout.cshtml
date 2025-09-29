@@ -1,0 +1,34 @@
+﻿@model LoginViewModel
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using Umbraco.Web
+@using Umbraco.Web.Models
+@using Umbraco.Web.Controllers
+@using TSPadel_Umbraco.Models;
+@using TSPadel_Umbraco.Controller;
+
+@{
+    Html.EnableClientValidation(true);
+    Html.EnableUnobtrusiveJavaScript(true);
+}
+
+<footer class="CCD-Footer">
+    <div id="myAccountLogout" class="myAccountSection">
+        @using (Html.BeginUmbracoForm<AuthSurfaceController>
+            ("Logout"))
+        {
+            <form action="/ccd/applications/" enctype="multipart/form-data" method="post" class="myAccountLogoutForm">
+                <fieldset>
+                    @Html.AntiForgeryToken()
+                    <input name="__RequestVerificationToken" type="hidden" value="gW7sg-YzFdmGU1BJIV3GjEgtiO58TIe-sA2JHkBzxexvV_a-O2xvNmonwmdf-wGvfFNChYfbqZN7i8_AHpGyjR6whV_sl2rQbjh1G7xM_gDQSLIcgA_dl56rMemE0GbC0">
+                    <div class="form-group">
+
+                        <button class="button-primary">Logout</button>
+
+                    </div>
+                </fieldset>
+                <input name="ufprt" type="hidden" value="3F2C4360B4E0E12A506667556712275D172823F318776ABAB3D9417462AC1125CC1DA83733D8382AA445EF9D7178009C27D2D7CE25B2A32825957923B03D92EBF8DA9A701EF29E7C572CF3F3F55929AC93B8889A5DD995077939A46EA9F45EA43551CB6440A034283C51E451FB1DF0061F2DCCCEF8C12C62E173D761B6CBEC28">
+            </form>
+        }
+    </div>
+</footer>
