@@ -1,36 +1,45 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 
-<footer class="text-bg-primary">
-    <div class="container py-4 py-md-5">
+<footer class="text-bg-primary mt-2">
+    <div class="container pt-4">
         <div class="col-12 col-md-10 p-0 m-0 row">
-            <div class="col-md-6">
-                <div class="col-md-3 p-0 m-0">
+            <div class="col-md-3">
+                <div class="col-md-6 p-0 m-0">
                     <img class="" alt="" src="~/Images/Innovestech_logo_white.png?w=100" height="66">
                 </div>
-                <div class="vstack gap-1 mt-3">
-                    <b class="">CONTACT</b>
-                    <p class="m-0">Innovestech</p>
+            </div>
+            <div class="col-md-3 my-3 my-md-0">
+                <div class="vstack gap-1">
+                    <b class="mb-2">CONTACT</b>
+                    @*<p class="m-0">Innovestech</p>*@
                 </div>
-                <div class="hstack gap-1 mt-3">
-                    <a class="btn btn-sm btn-light rounded-circle" href="mailto:hello@innovestech.co.uk"><i class="fa fa-envelope"></i></a>
-                    <a class="btn btn-sm btn-light rounded-circle" href="tel:+447525457811"><i class="fa fa-phone"></i></a>
+                <div class="hstack gap-2">
+                    <a class="text-white text-decoration-none" target="_blank" href="mailto:emma@innovestech.com"> <i class="fa fa-envelope"></i>&nbsp;emma@innovestech.com</a>
                 </div>
             </div>
+            @* <div class="col-md-3">
+                    <div class="vstack">
+                        <b class="footer-subheader">LATEST NEWS</b>
+
+                    </div>
+                </div>*@
             <div class="col-md-3">
                 <div class="vstack">
-                    <b class="footer-subheader">LATEST NEWS</b>
-                    
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="vstack">
-                    <b class="footer-subheader">FOLLOW US</b>
-                    <a class="text-white" target="_blank" href="https://www.instagram.com/ts.padel/"> <i class="fa-brands fa-linkedin"></i>&nbsp;Innovestech</a>
+                    <b class="footer-subheader mb-2">FOLLOW US</b>
+                    <a class="text-white text-decoration-none" target="_blank" href="https://www.instagram.com/ts.padel/"> <i class="fa-brands fa-linkedin"></i>&nbsp;Innovestech</a>
                 </div>
             </div>
         </div>
+        <div class="col-12 m-0 p-0 row hstack">
+            <div class="col pe-0">
+                <hr class="border-warning opacity-100">
+            </div>
+            <div class="col-auto ps-0">
+                <i class="fa-circle fa-regular text-warning"></i>
+            </div>
+        </div>
     </div>
-    <div class="col-md-12 m-0 row text-bg-secondary">
-        <p class="text-center my-2">© 2025 Innovestech</p>
+    <div class="col-md-12 m-0 row text-bg-primary">
+        <p class="text-center mb-3">© 2025 Innovestech</p>
     </div>
 </footer>

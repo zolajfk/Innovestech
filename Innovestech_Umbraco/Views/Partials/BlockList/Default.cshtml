@@ -4,7 +4,7 @@
     if (!Model.Any()) { return; }
 }
 <div class="umb-block-list">
-    <div class="col-12 p-0 m-0 row row-gap-2 py-2">
+    <div class="col-12 p-0 m-0 row row-gap-md-2">
         @foreach (var block in Model)
         {
             if (block?.ContentUdi == null) { continue; }

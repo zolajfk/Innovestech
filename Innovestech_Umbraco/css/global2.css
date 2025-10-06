@@ -1,25 +1,21 @@
 :root {
-    --bs-primary: #1A2E4F;
-    --bs-primary-rgb: 26, 46, 79;
-    --bs-primary-hover: #26463d;
-    --bs-primary-hover-rgb: 38, 70, 61;
-    --bs-link-color: #1C342D;
-    --bs-link-color-rgb: 28, 52, 45;
+    --bs-primary: #11284C;
+    --bs-primary-rgb: 17, 40, 76;
+    --bs-primary-hover: #274475;
+    --bs-primary-hover-rgb: 39, 68, 117;
+    --bs-link-color: #11284C;
+    --bs-link-color-rgb: 17, 40, 76;
     --bs-link-decoration: none;
-    --bs-link-hover-color: #2E554A;
-    --bs-link-hover-color-rgb: 46, 85, 74;
+    --bs-link-hover-color: #274475;
+    --bs-link-hover-color-rgb: 39, 68, 117;
     --bs-secondary: #008B8B;
     --bs-secondary-rgb: 0, 139, 139;
-    --bs-secondary-hover: #8E7A46;
-    --bs-secondary-hover-rgb: 144, 123, 71;
-    --bs-success: #4CAF50;
-    --bs-success-rgb: 76, 175, 80;
-    --bs-success-hover: #81B13B;
-    --bs-success-hover-rgb: 129, 176, 59;
-    --bs-danger: #773430;
-    --bs-danger-rgb: 120, 52, 48;
-    --bs-danger-hover: #9B443F;
-    --bs-danger-hover-rgb: 156, 68, 64;
+    --bs-secondary-hover: #00BEBE;
+    --bs-secondary-hover-rgb: 0, 190, 190;
+    --bs-warning: #A37F26;
+    --bs-warning-rgb: 163, 127, 38;
+    --bs-warning-hover: #CC9F30;
+    --bs-warning-hover-rgb: 204, 159, 48;
 }
 
 header {
@@ -150,4 +146,10 @@ h2 {
     z-index: 2;
     display: flex;
     align-items: flex-start;
+}
+
+/* Horizontal Rule */
+
+hr {
+    color: 
 }

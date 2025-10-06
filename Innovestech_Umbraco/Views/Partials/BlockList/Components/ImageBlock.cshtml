@@ -37,7 +37,7 @@
     string croppedName = crops.TryGetValue(crop, out var val) ? val : "mediumImage";
 }
 
-<div class="@widthName p-0">
+<div class="@widthName d-flex justify-content-center py-3">
     @{
         if (typedMediaPickerSingle != null)
         {
