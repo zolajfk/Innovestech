@@ -8,10 +8,9 @@
     var buttonClasses = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 {
         { "white", "btn btn-light" },
-        { "forestgreen", "btn btn-primary" },
+        { "darkblue", "btn btn-primary" },
         { "earthgold", "btn btn-secondary" },
         { "mossgreen", "btn btn-success" },
-        { "agedred", "btn btn-danger" }
     };
 
     string btnClass = buttonClasses.TryGetValue(buttonColour ?? "", out var css)

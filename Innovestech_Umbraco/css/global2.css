@@ -8,14 +8,14 @@
     --bs-link-decoration: none;
     --bs-link-hover-color: #274475;
     --bs-link-hover-color-rgb: 39, 68, 117;
-    --bs-secondary: #008B8B;
-    --bs-secondary-rgb: 0, 139, 139;
-    --bs-secondary-hover: #00BEBE;
-    --bs-secondary-hover-rgb: 0, 190, 190;
-    --bs-warning: #A37F26;
-    --bs-warning-rgb: 163, 127, 38;
-    --bs-warning-hover: #CC9F30;
-    --bs-warning-hover-rgb: 204, 159, 48;
+    --bs-success: #008B8B;
+    --bs-success-rgb: 0, 139, 139;
+    --bs-success-hover: #00BEBE;
+    --bs-success-hover-rgb: 0, 190, 190;
+    --bs-secondary: #A37F26;
+    --bs-secondary-rgb: 163, 127, 38;
+    --bs-secondary-hover: #CC9F30;
+    --bs-secondary-hover-rgb: 204, 159, 48;
 }
 
 header {
@@ -30,12 +30,14 @@ h1 {
 }
 h2 {
     font-family: "Lato";
+    color: var(--bs-primary);
 }
 
-.text-white a, 
+.text-white a,
+.text-body a,
 .text-primary a,
-.text-secondary a, 
-.text-success a, 
+.text-secondary a,
+.text-success a,
 .text-danger a {
     color: inherit;
 }
@@ -149,7 +151,3 @@ h2 {
 }
 
 /* Horizontal Rule */
-
-hr {
-    color: 
-}

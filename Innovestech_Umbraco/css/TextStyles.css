@@ -2,22 +2,27 @@
 
 /**umb_name:H1*/
 h1.h2 {
+	color: var(--bs-primary);
 }
 
 /**umb_name:H2*/
 h2.h3 {
+	color: var(--bs-primary);
 }
 
 /**umb_name:H3*/
 h3.h4 {
+	color: var(--bs-primary);
 }
 
 /**umb_name:H4*/
 h4.h5 {
+	color: var(--bs-primary);
 }
 
 /**umb_name:H5*/
 h5.h6 {
+	color: var(--bs-primary);
 }
 
 /**umb_name:Forest Green*/
@@ -35,12 +40,11 @@ h5.h6 {
 	color: #658B2E;
 }
 
-/**umb_name:Aged Red*/
-.text-danger {
-	color: #773430;
-}
-
 /**umb_name:White*/
 .text-white {
 	color: #808080;
+}
+
+/**umb_name:Black*/
+.text-body {
 }
