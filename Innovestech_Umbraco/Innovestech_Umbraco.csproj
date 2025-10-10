@@ -627,6 +627,7 @@
     <Content Include="Views\Partials\Application_Form_Print.cshtml" />
     <Content Include="Views\ApplicationFormPrint.cshtml" />
     <Content Include="Views\CCDApplicationFormPrint.cshtml" />
+    <Content Include="Views\MacroPartials\Insert Icon.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{
+    var iconText = Model.MacroParameters["iconText"]?.ToString()?.Trim()?.ToLower();;
+    var iconSize = Model.MacroParameters["iconSize"]?.ToString()?.Trim()?.ToLower(); ;
+}
+
+@if (iconText != null)
+{
+    <i class="@iconText fa-@iconSize my-1">      
+    </i>
+}

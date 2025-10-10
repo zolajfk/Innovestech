@@ -27,9 +27,19 @@
     };
 
     var blockWidth = eventDate.Value<string>("blockWidth") ?? "";
-    string widthName = widths.TryGetValue(blockWidth, out var wcss) ? wcss : "col-12";
+    string widthName = widths.TryGetValue(blockWidth, out var css2) ? css2 : "col-12";
+
+    var alignments = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+        { "LEFT", "vstack align-items-start" },
+        { "CENTER", "vstack align-items-center" },
+        { "RIGHT", "vstack align-items-end" },
+    };
+
+    var blockAlignment = eventDate.Value<string>("alignContent") ?? "";
+    string alignmentName = alignments.TryGetValue(blockAlignment, out var css3) ? css3 : "";
 }
 
-<div class="@widthName @className py-3">
+<div class="@widthName @className @alignmentName py-2 py-md-3">
     @Html.Raw(eventDate.Value("text"))
 </div>
