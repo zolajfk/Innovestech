@@ -17,8 +17,8 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c2307d7dbe8af72a")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "59cca4e4c54c68e0")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -493,6 +493,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Align Content: Vertically align all content (including macros)
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		[ImplementPropertyType("alignContent")]
+		public virtual string AlignContent => this.Value<string>("alignContent");
 
 		///<summary>
 		/// Block Width
