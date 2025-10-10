@@ -18,6 +18,9 @@
     --bs-secondary-hover-rgb: 204, 159, 48;
 }
 
+body {
+    font-family:"Barlow";
+}
 header {
     background-color: #00000090;
 }
