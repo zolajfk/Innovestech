@@ -1,0 +1,48 @@
+﻿@inherits UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    var eventDate = (ContentModels.TestimonialBlock)Model.Content;
+}
+
+@{
+    var styles = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+        { "FOREST GREEN", "text-bg-primary" },
+        { "EARTH GOLD",   "text-bg-secondary" },
+        { "MOSS GREEN",   "text-bg-success" },
+        { "AGED RED",     "text-bg-danger" },
+        { "WHITE",        "text-bg-white" }
+    };
+
+    var style = eventDate.Value<string>("styleUsed") ?? "";
+    string className = styles.TryGetValue(style, out var css) ? css : "";
+
+    var widths = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+        { "25%", "col-12 col-md-3" },
+        { "33%", "col-12 col-md-4" },
+        { "50%", "col-12 col-md-6" },
+        { "66%", "col-12 col-md-8" },
+        { "75%", "col-12 col-md-9" }
+    };
+
+    var blockWidth = eventDate.Value<string>("blockWidth") ?? "";
+    string widthName = widths.TryGetValue(blockWidth, out var css2) ? css2 : "col-12";
+
+    var alignments = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+        { "LEFT", "vstack align-items-start" },
+        { "CENTER", "vstack align-items-center" },
+        { "RIGHT", "vstack align-items-end" },
+    };
+
+    var blockAlignment = eventDate.Value<string>("alignContent") ?? "";
+    string alignmentName = alignments.TryGetValue(blockAlignment, out var css3) ? css3 : "";
+}
+
+<div class="@widthName @className @alignmentName text-center py-3">
+    <div class="container">
+        <p class="fs-4"><i class="fa fa-quote-left align-top me-2"></i><span class="fs-2">@Html.Raw(eventDate.Value("text"))</span><i class="fa fa-quote-right align-bottom ms-2"></i></p>
+        <span>- @Html.Raw(eventDate.Value("quotee"))</span>
+    </div>
+</div>
