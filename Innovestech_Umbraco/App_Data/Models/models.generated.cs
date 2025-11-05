@@ -17,7 +17,7 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "59cca4e4c54c68e0")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "40eb0389e8d004be")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
@@ -994,6 +994,60 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+	}
+
+	/// <summary>Testimonial Block</summary>
+	[PublishedModel("testimonialBlock")]
+	public partial class TestimonialBlock : PublishedElementModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		public new const string ModelTypeAlias = "testimonialBlock";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<TestimonialBlock, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public TestimonialBlock(IPublishedElement content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Block Width
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		[ImplementPropertyType("blockWidth")]
+		public virtual string BlockWidth => this.Value<string>("blockWidth");
+
+		///<summary>
+		/// Quotee
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		[ImplementPropertyType("quotee")]
+		public virtual string Quotee => this.Value<string>("quotee");
+
+		///<summary>
+		/// Style Used
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		[ImplementPropertyType("styleUsed")]
+		public virtual string StyleUsed => this.Value<string>("styleUsed");
+
+		///<summary>
+		/// Quote
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.18.9")]
+		[ImplementPropertyType("text")]
+		public virtual string Text => this.Value<string>("text");
 	}
 
 	/// <summary>Folder</summary>
