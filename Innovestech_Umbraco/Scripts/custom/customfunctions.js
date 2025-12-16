@@ -63,3 +63,71 @@ function logError(functionName, jqX, textStatus, errorThrown) {
         contentType: 'application/json'
     });
     };
+
+
+    (function(){
+  // Only on Single view
+  if(!/\/grade\/report\/singleview\/index\.php$/.test(location.pathname)) return;
+
+    // Hide the "Exclude" column (cells + header)
+    document.addEventListener('DOMContentLoaded', function(){
+        // Header with text "Exclude"
+        document.querySelectorAll('table thead th').forEach(function (th) {
+            if (th.textContent.trim().toLowerCase() === 'exclude' || th.textContent.trim().toLowerCase() === 'override' || th.textContent.trim().toLowerCase() === 'grade category' || th.textContent.trim().toLowerCase() === 'range') {
+                const idx = Array.from(th.parentNode.children).indexOf(th);
+                // hide header
+                th.style.display = 'none';
+                // hide corresponding cells
+                document.querySelectorAll('table tbody tr').forEach(function (tr) {
+                    const td = tr.children[idx];
+                    if (td) td.style.display = 'none';
+                });
+            }
+        });
+
+        document.querySelectorAll('table thead td').forEach(function (th) {
+            if (th.textContent.trim().toLowerCase() === '') {
+                const idx = Array.from(th.parentNode.children).indexOf(th);
+                // hide header
+                th.style.display = 'none';
+                // hide corresponding cells
+                document.querySelectorAll('table tbody tr').forEach(function (tr) {
+                    const td = tr.children[idx];
+                    if (td) td.style.display = 'none';
+                });
+            }
+        });
+
+            document.querySelectorAll('input[name^="grade_"], input[name^="finalgrade_"]').forEach(function (inp) {
+                if (inp.type === 'hidden' || inp.disabled) return;
+                try { inp.type = 'number'; } catch (e) { }
+                inp.setAttribute('inputmode', 'numeric');
+                inp.setAttribute('min', '0');     // <-- adjust if needed
+                inp.setAttribute('step', '1');    // <-- adjust if needed
+                // Optional: uncomment and set your cap (e.g., 3)
+                // inp.setAttribute('max','3');
+                if (!inp.title) inp.title = 'Enter an integer (min 1)';
+            });
+            // If your Single view shows feedback as a short input anywhere, expand to textarea
+            document.querySelectorAll('input[name^="feedback_"]').forEach(function (inp) {
+                if (inp.type === 'hidden' || inp.disabled) return;
+                var ta = document.createElement('textarea');
+                ta.name = inp.name;
+                ta.value = inp.value || '';
+                ta.rows = 3; // tweak height if you like
+                ta.className = inp.className;
+                ['id', 'placeholder', 'aria-label'].forEach(function (a) {
+                    if (inp.hasAttribute(a)) ta.setAttribute(a, inp.getAttribute(a));
+                });
+                inp.replaceWith(ta);
+            });
+            // Normalize existing TEXTAREAs too
+            document.querySelectorAll('textarea[name^="feedback_"]').forEach(function (ta) {
+                if (ta.rows < 3) ta.rows = 3;
+            });
+
+            // Optional: hide category “filter” row if you don’t want to show category UI at all
+            // document.querySelectorAll('select[name="filtercategory"], .singleview-categoryfilter').forEach(el => el.style.display='none');
+        });
+})();
+
