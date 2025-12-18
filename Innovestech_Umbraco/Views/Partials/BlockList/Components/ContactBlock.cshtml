@@ -18,7 +18,7 @@
 }
 @if (eventDate.Value<string>("styleUsed").ToUpper() == "GREY")
 {
-    className = "bg-grey";
+    className = "text-bg-light";
 }
 @if (eventDate.Value<string>("styleUsed").ToUpper() == "LIGHT GREY")
 {
@@ -49,7 +49,7 @@ else
     widthName = "col-12 p-0";
 }
 <div class="@widthName">
-    <div class="@className">
+    <div class="@className h-100">
         @Html.Raw(eventDate.Value("text"))
         @Html.Partial("Contact_Form", contactFormModel)
     </div>

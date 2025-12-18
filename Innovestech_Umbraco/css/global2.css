@@ -18,20 +18,30 @@
     --bs-secondary-hover-rgb: 204, 159, 48;
 }
 
-body {
-    font-family:"Barlow";
+.home {
+    min-height: calc(100vh - 277px);
 }
+
+body, .h3, .h4, .h5, .h6 {
+    font-family: "Barlow";
+}
+
 header {
     background-color: #00000090;
 }
 
 /* Text */
 
-h1 {
+h1, .h1 {
     font-family: "Montserrat";
     color: var(--bs-secondary);
 }
-h2 {
+
+.text-bg-secondary h1, .text-bg-secondary .h1 {
+    color: inherit;
+}
+
+h2, .h2 {
     font-family: "Lato";
     color: var(--bs-primary);
 }
@@ -113,6 +123,10 @@ h2 {
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: var(--bs-danger);
     --bs-btn-disabled-border-color: var(--bs-danger);
+}
+
+.btn a {
+    text-decoration: none !important;
 }
 
 /* Navbar */

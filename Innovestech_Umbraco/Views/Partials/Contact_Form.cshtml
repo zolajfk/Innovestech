@@ -24,42 +24,45 @@
         }
     }
 }
-@using (Html.BeginUmbracoForm<ContactSurfaceController>("ContactBlock", null, new { @id = "contactForm" }))
+@using (Html.BeginUmbracoForm<ContactSurfaceController>("ContactBlock", null, new { @id = "contactForm", @class = "h-100 align-content-center" }))
 {
     @Html.ValidationSummary("contactFormModel", true)
-    <div class="contact-input-boxes row">
-        <div class="inputBoxes">
-            <div class="col d-flex flex-column gap-3">
-                <div>
-                    @Html.TextBoxFor(m => Model.First_Name, new { @class = "form-control required", @placeholder = "First Name" })
-                    @Html.ValidationMessageFor(m => Model.First_Name)
-                </div>
-                <div>
-                    @Html.TextBoxFor(m => Model.Last_Name, new { @class = "form-control required", @placeholder = "Last Name" })
-                    @Html.ValidationMessageFor(m => Model.Last_Name)
-                </div>
+    <div class="vstack gap-2 gap-md-3 py-4">
+        <div class="row row-gap-2 m-0">
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => Model.First_Name, new { @class = "form-control required", @placeholder = "First Name" })
+                @Html.ValidationMessageFor(m => Model.First_Name)
             </div>
-            <div class="col d-flex flex-column gap-3">
-                <div>
-                    @Html.TextBoxFor(m => Model.Email_Address, new { @class = "form-control required", @placeholder = "Email Address" })
-                    @Html.ValidationMessageFor(m => Model.Email_Address)
-                </div>
-                <div>
-                    @Html.TextBoxFor(m => Model.Phone_Number, new { @class = "form-control required", @placeholder = "Phone Number" })
-                    @Html.ValidationMessageFor(m => Model.Phone_Number)
-                </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => Model.Last_Name, new { @class = "form-control required", @placeholder = "Last Name" })
+                @Html.ValidationMessageFor(m => Model.Last_Name)
             </div>
         </div>
-        <div class="messageBox">
-            @Html.TextAreaFor(m => Model.Contact_Message, new { @class = "form-control required", @rows = "4", @placeholder = "Message" })
-            @Html.ValidationMessageFor(m => Model.Contact_Message)
+        <div class="row row-gap-2  m-0">
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => Model.Email_Address, new { @class = "form-control required", @placeholder = "Email Address" })
+                @Html.ValidationMessageFor(m => Model.Email_Address)
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => Model.Phone_Number, new { @class = "form-control required", @placeholder = "Phone Number" })
+                @Html.ValidationMessageFor(m => Model.Phone_Number)
+            </div>
         </div>
-        <button class="btn btn-turq">
-            <div class="contact-subheader white">Submit</div>
-            <img class="button-arrow" alt="" src="./public/icon-featherarrowright.svg" />
-        </button>
-        <div id="formSubmitted" style="display:none">
-            Thank you for your contact request - a member of the team will be in touch with you
+        <div class="row m-0">
+            <div class="col-12">
+                @Html.TextAreaFor(m => Model.Contact_Message, new { @class = "form-control required", @rows = "4", @placeholder = "Message" })
+                @Html.ValidationMessageFor(m => Model.Contact_Message)
+            </div>
+        </div>
+        <div class="row m-0">
+            <div class="col-12 vstack gap-2 gap-md-3">
+                <button class="btn btn-success">
+                    <i class="fa fa-check me-2"></i>Submit
+                </button>
+                <div id="formSubmitted" class="alert alert-success" style="display:none">
+                    Thank you for your contact request - a member of the team will be in touch with you
+                </div>
+            </div>
         </div>
     </div>
 }
